@@ -1,0 +1,9 @@
+name: "Building i18n files"
+description: "Building translation files for the i18n library"
+author: text-adi
+runs:
+  using: docker
+  image: Dockerfile
+branding:
+  icon: refresh-ccw
+  color: green
