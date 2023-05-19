@@ -1,5 +1,4 @@
-Для запуску
+# Building i18n files
 
-```
-docker-compose up -d --build; 
-```
+Building translation files for the i18n library
+ 
