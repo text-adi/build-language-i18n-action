@@ -18,7 +18,7 @@ jobs:
       - name: Create file
         run: |
           mkdir -p src
-          TMP=$(echo ${{vars.TEMPLATE}})     
+          TMP=$(echo "${{vars.TEMPLATE}}")     
           echo "$TMP" >> src/file.po
           ls -la src
           tail src/file.po
