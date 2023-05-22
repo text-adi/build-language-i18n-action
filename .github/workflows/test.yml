@@ -16,10 +16,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Create file
-        run: |
-          mkdir -p src
-          TMP=$(echo "${{vars.TEMPLATE}}")     
-          echo "$TMP" >> src/file.po
+      - uses: "finnp/create-file-action@master"
+        env:
+          FILE_NAME: "src/file.po"
+          FILE_DATA: ${{vars.TEMPLATE}}
+      - run: |
           ls -la src
           tail src/file.po
       - uses: text-adi/build-language-i18n-action@dev
