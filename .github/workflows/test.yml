@@ -17,7 +17,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Create file
         run: |
-          mkdir src
+          mkdir -p src
           echo ${{ vars.TEMPLATE }} > file.po
           ls -la src
       - uses: text-adi/build-language-i18n-action@dev
