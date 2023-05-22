@@ -14,7 +14,7 @@ RUN apk add --no-cache gettext
 
 WORKDIR /app
 
-COPY script/docker-entrypoint.sh /app/docker-entrypoint.sh
+COPY docker-entrypoint.sh /app/docker-entrypoint.sh
 
 RUN chmod +x /app/docker-entrypoint.sh
 
