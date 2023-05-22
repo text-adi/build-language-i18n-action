@@ -23,5 +23,14 @@ jobs:
       - run: |
           ls -la src
           tail src/file.po
+          rm -rf src/file.mo
       - uses: text-adi/build-language-i18n-action@dev
-      - run: ls -la src
+      - name: Check Test
+        run:
+          expected_files=("file.po" "file.mo")
+          directory="./src/"
+          for file in "${expected_files[@]}"; do
+            if [[ ! -f "$directory/$file" ]]; then
+              echo "File $file not fount" && exit 1
+            fi
+          done
