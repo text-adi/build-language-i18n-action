@@ -1,0 +1,16 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - dev
+  workflow_run:
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ${{ env.GITHUB_REPOSITORY }}@dev
+      - run: ls -la src/locale/aa/LC_MESSAGES/
