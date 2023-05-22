@@ -12,6 +12,6 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
       - uses: text-adi/build-language-i18n-action@dev
       - run: ls -la src/locale/aa/LC_MESSAGES/
