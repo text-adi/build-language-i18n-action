@@ -19,7 +19,7 @@ jobs:
         run: |
           mkdir -p src
           TMP=$(echo $vars.TEMPLATE)     
-          echo "$TMP" >> file.po
+          echo "$TMP" >> src/file.po
           ls -la src
       - uses: text-adi/build-language-i18n-action@dev
       - run: ls -la src
