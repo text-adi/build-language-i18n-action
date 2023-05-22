@@ -21,5 +21,6 @@ jobs:
           TMP=$(echo $vars.TEMPLATE)     
           echo "$TMP" >> src/file.po
           ls -la src
+          tail src/file.po
       - uses: text-adi/build-language-i18n-action@dev
       - run: ls -la src
