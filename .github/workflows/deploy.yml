@@ -1,9 +1,10 @@
-name: Test
+name: Deploy
 
 on:
   push:
     branches: [ 'main' ]
     tags: [ 'v*.*.*' ]
+
 
 env:
   IMAGE_NAME: utils-build-language-i18n
@@ -32,4 +33,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ env.DOCKER_USERNAME }}/$IMAGE_NAME:latest,${{ env.DOCKER_USERNAME }}/$IMAGE_NAME:github.ref
+          tags: ${{ env.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest,${{ env.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:github.ref
