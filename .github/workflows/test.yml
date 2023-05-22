@@ -18,7 +18,7 @@ jobs:
       - name: Create file
         run: |
           mkdir -p src
-          echo '${{ vars.TEMPLATE }}' > file.po
+          echo "${{ vars.TEMPLATE }}" > file.po
           ls -la src
       - uses: text-adi/build-language-i18n-action@dev
       - run: ls -la src
