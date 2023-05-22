@@ -26,7 +26,7 @@ jobs:
           rm -rf src/file.mo
       - uses: text-adi/build-language-i18n-action@dev
       - name: Check Test
-        run:
+        run: |
           expected_files=("file.po" "file.mo")
           directory="./src/"
           for file in "${expected_files[@]}"; do
