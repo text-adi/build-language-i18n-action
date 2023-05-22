@@ -18,8 +18,8 @@ jobs:
       - name: Create file
         run: |
           mkdir -p src
-          TMP=$(echo "${{ vars.TEMPLATE }}")     
-          echo "$TMP" > file.po
+          TMP=$(echo $vars.TEMPLATE)     
+          echo "$TMP" >> file.po
           ls -la src
       - uses: text-adi/build-language-i18n-action@dev
       - run: ls -la src
