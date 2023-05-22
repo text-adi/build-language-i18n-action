@@ -29,11 +29,10 @@ line_msg
 
 echo "Found files..."
 files=$(find . -name "*.po")
-
 echo "Start build..."
 
 for file in $files; do
-  path=$(echo $file | cut -d'/' -f -5)                                 # шлях до файла
+  path=$(dirname $file)                                 # шлях до файла
   file_name=$(echo $file | rev | cut -d'/' -f1 | rev | cut -d'.' -f 1) # назва файла, без розширення
 
   echo "Compile $path/$file_name.po > $path/$file_name.mo"
