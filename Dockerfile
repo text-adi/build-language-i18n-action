@@ -10,15 +10,11 @@ LABEL repository="https://github.com/text-adi/build-lang-action"
 LABEL homepage="https://github.com/text-adi"
 LABEL maintainer="text-adi <text-adi@github.com>"
 
-
-ENV DIR='*'
-ENV DELETE_FILE_MO=1
-
 RUN apk add --no-cache gettext
 
 WORKDIR /app
 
-COPY script/docker-entrypoint.sh /app/docker-entrypoint.sh
+COPY docker-entrypoint.sh /app/docker-entrypoint.sh
 
 RUN chmod +x /app/docker-entrypoint.sh
 
