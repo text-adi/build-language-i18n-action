@@ -27,7 +27,7 @@ line_msg
 echo "Build language files..."
 line_msg
 
-echo "Found files..."
+echo "Found files in directory $DIR..."
 files=$(find $DIR -name "*.po")
 echo "Start build..."
 
