@@ -4,7 +4,7 @@ set -e
 
 # Default to * if AWS_REGION not set.
 if [ -z "$DIR" ]; then
-  DIR="."
+  c="."
 fi
 
 # shellcheck disable=SC2112
