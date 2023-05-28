@@ -1,9 +1,9 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 set -e
 
 # Default to * if AWS_REGION not set.
-if [ -z "$DIR" ]; then
+if [ ! -v DIR ]; then
   DIR="."
 fi
 
@@ -27,8 +27,8 @@ line_msg
 echo "Build language files..."
 line_msg
 
-echo "Found files..."
-files=$(find $DIR -name "*.po")
+echo "Found files in directory "${DIR}"..."
+files=$(find ${DIR} -name "*.po")
 echo "Start build..."
 
 for file in $files; do
