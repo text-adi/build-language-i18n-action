@@ -37,7 +37,7 @@ jobs:
           ls -la ${{ github.workspace }}/src
 
       - uses: text-adi/build-language-i18n-action@dev
-        with:
+        env:
           DIR: src/another
 
       - name: Check Test - 1
