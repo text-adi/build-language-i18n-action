@@ -3,7 +3,7 @@
 set -e
 
 # Default to * if AWS_REGION not set.
-if [ -n "$DIR" ]; then
+if [ -v "$DIR" ]; then
   DIR="."
 fi
 
