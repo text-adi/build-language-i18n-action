@@ -29,8 +29,8 @@ jobs:
 
       - name: Create new file for build
         run: |
-          cp ${{ github.workspace }}/src/file.po ${{ github.workspace }}/src/main
-          cp ${{ github.workspace }}/src/file.po ${{ github.workspace }}/src/another
+          cp ${{ github.workspace }}/src/file.po ${{ github.workspace }}/src/main/file.po
+          cp ${{ github.workspace }}/src/file.po ${{ github.workspace }}/src/another/file.po
           ls -la ${{ github.workspace }}/src
 
       - uses: text-adi/build-language-i18n-action@dev
