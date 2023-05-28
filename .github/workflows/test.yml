@@ -31,6 +31,7 @@ jobs:
         run: |
           cp ${{ github.workspace }}/src/file.po ${{ github.workspace }}/src/main
           cp ${{ github.workspace }}/src/file.po ${{ github.workspace }}/src/another
+          ls -la ${{ github.workspace }}/src/*/
 
       - uses: text-adi/build-language-i18n-action@dev
         with:
@@ -42,7 +43,7 @@ jobs:
           directory="./src/another"
           for file in "${expected_files[@]}"; do
             if [[ ! -f "$directory/$file" ]]; then
-              echo "File $file not found in dir $directory/$file" && ls -la $directory/$file && exit 1
+              echo "File $file not found in dir $directory/$file" && ls -la $directory && exit 1
             fi
           done
 
@@ -52,7 +53,7 @@ jobs:
           directory="./src/main"
           for file in "${expected_files[@]}"; do
             if [[ -f "$directory/$file" ]]; then
-              echo "File $file found in $directory/$file" && ls -la $directory/$file && exit 1
+              echo "File $file found in $directory/$file" && ls -la $directory && exit 1
             fi
           done
       
