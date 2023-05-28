@@ -23,7 +23,8 @@ jobs:
 #          path: /var/lib/docker
 #          key: ${{ runner.os }}-docker-${{ hashFiles('Dockerfile') }}
       - run: |
-          ls -la /var
+          whereis docker
+          ls -la /var/cache
       - uses: actions/cache@v2
         with:
           path: /path/to/docker/image/folder  # Шлях до папки з образами Docker, які ви хочете кешувати
