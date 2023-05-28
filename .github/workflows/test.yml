@@ -1,4 +1,4 @@
-name: Test
+name: Testing code
 
 on:
   push:
@@ -16,13 +16,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Cache Docker images
-        uses: actions/cache@v3
+      - name: Restore cached Docker images
+        id: cache-docker-restore
+        uses: actions/cache/restore@v3
         with:
           path: /var/lib/docker
           key: ${{ runner.os }}-docker-${{ hashFiles('Dockerfile') }}
-          restore-keys: |
-            ${{ runner.os }}-docker-
 
       - run: |
           mkdir ${{ github.workspace }}/src
@@ -68,4 +67,11 @@ jobs:
               echo "File $file found in $directory/$file" && ls -la $directory && exit 1
             fi
           done
-      
+
+      - name: Save Docker images
+        id: cache-primes-save
+        uses: actions/cache/save@v3
+        with:
+          path: /var/lib/docker
+          key: ${{ steps.cache-docker-restore.outputs.cache-primary-key }}
+
