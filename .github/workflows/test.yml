@@ -28,8 +28,8 @@ jobs:
 
       - name: Create new file for build
         run: |
-          cp src/file.po src/main/
-          cp src/file.po src/another/
+          cp src/file.po src/main
+          cp src/file.po src/another
 
       - uses: text-adi/build-language-i18n-action@dev
         with:
