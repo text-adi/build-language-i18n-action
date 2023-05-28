@@ -24,6 +24,7 @@ jobs:
 #          key: ${{ runner.os }}-docker-${{ hashFiles('Dockerfile') }}
       - run: |
           whereis docker
+          ls -la  /etc/docker
           ls -la /var/cache
       - uses: actions/cache@v2
         with:
