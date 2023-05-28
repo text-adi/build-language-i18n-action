@@ -22,14 +22,6 @@ jobs:
 #        with:
 #          path: /var/lib/docker
 #          key: ${{ runner.os }}-docker-${{ hashFiles('Dockerfile') }}
-      - run: |
-          whereis docker
-          ls -la  /etc/docker
-          ls -la /var/cache
-      - uses: actions/cache@v2
-        with:
-          path: /path/to/docker/image/folder  # Шлях до папки з образами Docker, які ви хочете кешувати
-          key: ${{ runner.os }}-docker-${{ hashFiles('/path/to/docker/image/folder/Dockerfile.lock') }}
 
       - run: |
           mkdir ${{ github.workspace }}/src
