@@ -28,8 +28,8 @@ jobs:
 
       - name: Create new file for build
         run: |
-          cp src/file.po src/main
-          cp src/file.po src/another
+          cp ${{ github.workspace }}/src/file.po ${{ github.workspace }}/src/main
+          cp ${{ github.workspace }}/src/file.po ${{ github.workspace }}/src/another
 
       - uses: text-adi/build-language-i18n-action@dev
         with:
