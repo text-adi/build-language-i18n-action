@@ -3,9 +3,9 @@
 set -e
 
 # Default to * if AWS_REGION not set.
-if [ ! -v DIR ]; then
-  DIR="."
-fi
+#if [ ! -v DIR ]; then
+#  DIR="."
+#fi
 
 # shellcheck disable=SC2112
 function title_msg() {
