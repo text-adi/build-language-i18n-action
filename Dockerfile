@@ -1,4 +1,4 @@
-FROM alpine:3.17
+FROM alpine:3
 
 LABEL "com.github.actions.name"="Building i18n files"
 LABEL "com.github.actions.description"="Building translation files for the i18n library"
