@@ -5,7 +5,7 @@ LABEL "com.github.actions.description"="Building translation files for the i18n 
 LABEL "com.github.actions.icon"="refresh-ccw"
 LABEL "com.github.actions.color"="green"
 
-LABEL version="0.0.1"
+LABEL version="2.0"
 LABEL repository="https://github.com/text-adi/build-lang-action"
 LABEL homepage="https://github.com/text-adi"
 LABEL maintainer="text-adi <text-adi@github.com>"

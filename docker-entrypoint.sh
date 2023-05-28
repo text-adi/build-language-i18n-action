@@ -4,7 +4,7 @@ set -e
 
 # Default to * if AWS_REGION not set.
 if [ -z "$DIR" ]; then
-  DIR="*"
+  DIR="."
 fi
 
 # shellcheck disable=SC2112
@@ -28,7 +28,7 @@ echo "Build language files..."
 line_msg
 
 echo "Found files..."
-files=$(find . -name "*.po")
+files=$(find $DIR -name "*.po")
 echo "Start build..."
 
 for file in $files; do
