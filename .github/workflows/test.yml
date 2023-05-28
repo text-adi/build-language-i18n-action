@@ -15,7 +15,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: mkdir ${{ github.workspace }}/src
+      - run: |
+          mkdir ${{ github.workspace }}/src
+          mkdir ${{ github.workspace }}/src/main
+          mkdir ${{ github.workspace }}/src/another
       - name: Create file
         uses: "finnp/create-file-action@master"
         env:
