@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - run: mkdir ${{ github.workspace }}/src
       - name: Create file
         uses: "finnp/create-file-action@master"
         env:
@@ -28,7 +29,6 @@ jobs:
 
       - name: Create new file for build
         run: |
-          chown -R runner:docker ${{ github.workspace }}/src 
           cp ${{ github.workspace }}/src/file.po ${{ github.workspace }}/src/main
           cp ${{ github.workspace }}/src/file.po ${{ github.workspace }}/src/another
 
