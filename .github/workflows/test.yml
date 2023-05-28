@@ -31,7 +31,7 @@ jobs:
         run: |
           cp ${{ github.workspace }}/src/file.po ${{ github.workspace }}/src/main
           cp ${{ github.workspace }}/src/file.po ${{ github.workspace }}/src/another
-          ls -la ${{ github.workspace }}/src/*/
+          ls -la ${{ github.workspace }}/src
 
       - uses: text-adi/build-language-i18n-action@dev
         with:
