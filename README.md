@@ -32,8 +32,6 @@ To do this, specify `textadi/build-language-i18n-action@v2.0` instead of `docker
 
 ### Configuration
 
-The following settings must be passed as environment variables as shown in the example. Sensitive information, especially `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`, should be [set as encrypted secrets](https://help.github.com/en/articles/virtual-environments-for-github-actions#creating-and-using-secrets-encrypted-variables) — otherwise, they'll be public to anyone browsing your repository's source code and CI logs.
-
 | Key | Value                                                                                             | Suggested Type | Required | Default               |
 | ------------- |---------------------------------------------------------------------------------------------------| ------------- | ------------- |-----------------------|
 | `DIR` | Directory for build language files For example, `src`. Defaults to the root of the bucket. | `env` | No | `./` (root of bucket) |
