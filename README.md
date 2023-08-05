@@ -36,4 +36,4 @@ The following settings must be passed as environment variables as shown in the e
 
 | Key | Value                                                                                             | Suggested Type | Required | Default               |
 | ------------- |---------------------------------------------------------------------------------------------------| ------------- | ------------- |-----------------------|
-| `DEST_DIR` | Directory for build language files For example, `src`. Defaults to the root of the bucket. | `env` | No | `./` (root of bucket) |
+| `DIR` | Directory for build language files For example, `src`. Defaults to the root of the bucket. | `env` | No | `./` (root of bucket) |
