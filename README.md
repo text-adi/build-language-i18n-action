@@ -28,7 +28,7 @@ jobs:
 ```
 
 You can also use an image from the repository. 
-To do this, specify `textadi/build-language-i18n-action@v3` instead of `docker://textadi/build-language-i18n-action@v2`
+To do this, specify `textadi/build-language-i18n-action@v3` instead of `docker://textadi/build-language-i18n-action@v3`
 
 ### Configuration
 
