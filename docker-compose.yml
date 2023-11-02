@@ -1,9 +1,10 @@
 version: "3"
 services:
   app:
-    container_name: django_build_lang
-    build: .
+    image: textadi/build-language-i18n-action:v3
+#    container_name: django_build_lang
+#    build: .
     volumes:
       - ./src:/app/src
     environment:
-      DIR: src/test
+      DIR: src
