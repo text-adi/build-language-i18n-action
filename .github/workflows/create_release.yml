@@ -11,7 +11,7 @@ env:
 
 jobs:
   Build_and_push:
-    name: Create Release
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
