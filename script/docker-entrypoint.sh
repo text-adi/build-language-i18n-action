@@ -1,3 +1,4 @@
 #!/bin/sh
 
-python builder/main.py
+ls -la
+python main.py
