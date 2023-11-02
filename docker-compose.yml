@@ -6,4 +6,4 @@ services:
     volumes:
       - ./src:/app/src
     environment:
-      DIR: src/file
+      DIR: src/test

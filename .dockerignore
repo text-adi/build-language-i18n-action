@@ -1,0 +1,7 @@
+.gitignore
+.github
+action.yml
+.idea
+README.md
+docker-compose.yml
+venv
