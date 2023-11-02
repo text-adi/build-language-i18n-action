@@ -36,7 +36,7 @@ jobs:
           cp src/file.po ${{ github.workspace }}/src/another/file.po
           ls -la ${{ github.workspace }}/src
 
-      - uses: docker://textadi/build-language-i18n-action@v3
+      - uses: docker://textadi/build-language-i18n-action:v3
         env:
           DIR: src/another
 
