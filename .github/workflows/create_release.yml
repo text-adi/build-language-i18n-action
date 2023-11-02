@@ -21,21 +21,21 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: true
-          prerelease: false
-
-      - name: Test
-        run: |
-          echo ${{ steps.create_release.outputs }}
-          exit 1
+#      - name: Create Release
+#        id: create_release
+#        uses: actions/create-release@v1
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          tag_name: ${{ github.ref }}
+#          release_name: Release ${{ github.ref }}
+#          draft: true
+#          prerelease: false
+#
+#      - name: Test
+#        run: |
+#          echo ${{ steps.create_release.outputs }}
+#          exit 1
 
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v2
@@ -43,6 +43,4 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ env.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:latest
-            ${{ env.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.RELEASE_VERSION }}
-            ${{ env.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.RELEASE_VERSION_SHORT }}
+            ${{ env.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${GITHUB_REF#refs/*/}
