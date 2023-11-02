@@ -25,4 +25,4 @@ COPY script script
 
 COPY --from=builder /install /usr/local/
 
-CMD ["/app/script/main.py"]
+CMD ["python","/app/script/main.py"]
