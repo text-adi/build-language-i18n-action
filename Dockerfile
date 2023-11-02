@@ -27,4 +27,4 @@ COPY builder builder
 COPY --from=builder /install /usr/local/
 
 RUN chmod +x script/docker-entrypoint.sh
-ENTRYPOINT ["script/docker-entrypoint.sh"]
+ENTRYPOINT ["app/script/docker-entrypoint.sh"]
