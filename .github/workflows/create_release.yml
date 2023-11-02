@@ -23,7 +23,7 @@ jobs:
 
       - name: Set basic env
         run: |
-          echo "Tag: ${{ github.action_ref }}"
+          echo "Tag: ${{ github.ref_name }}"
 
 #      - name: Create Release
 #        id: create_release
@@ -45,6 +45,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          push: true
+          push: false
           tags: |
-            ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.action_ref }}
+            ${{ secrets.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ github.ref_name }}
