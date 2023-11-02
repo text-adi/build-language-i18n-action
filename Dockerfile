@@ -22,7 +22,6 @@ LABEL maintainer="text-adi <text-adi@github.com>"
 WORKDIR /app
 
 COPY script script
-COPY builder builder
 
 COPY --from=builder /install /usr/local/
 
