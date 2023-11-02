@@ -1,9 +1,13 @@
-name: Deploy
+name: Create Release
 
 on:
   push:
-    tags:
+    branches:
       - 'v*'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 env:
   IMAGE_NAME: build-language-i18n-action
