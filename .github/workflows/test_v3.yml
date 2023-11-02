@@ -38,8 +38,7 @@ jobs:
 
       - uses: docker://textadi/build-language-i18n-action:v3
         env:
-          DIR: src/another
-
+          DIR: src
       - name: Check Test - 1
         run: |
           expected_files=("file.po" "file.mo")
