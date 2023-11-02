@@ -22,13 +22,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - uses: docker://textadi/build-language-i18n-action@v3
+    - uses: docker://textadi/build-language-i18n-action@v1
       env:
         DIR: src
 ```
 
 You can also use an image from the repository. 
-To do this, specify `textadi/build-language-i18n-action@v3` instead of `docker://textadi/build-language-i18n-action@v3`
+To do this, specify `text-adi/build-language-i18n-action@v1` instead of `docker://textadi/build-language-i18n-action@v1`
 
 ### Configuration
 
