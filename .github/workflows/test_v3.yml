@@ -36,7 +36,7 @@ jobs:
           cp src/file.po ${{ github.workspace }}/src/another/file.po
           ls -la ${{ github.workspace }}/src
 
-      - uses: textadi/build-language-i18n-action@v3
+      - uses: textadi/build-language-i18n-action@prod
         env:
           DIR: src
 
