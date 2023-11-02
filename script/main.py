@@ -43,7 +43,11 @@ class Tools:
                     Tools.get_all_file_in_dir(dir_name)
 
 
-TITLE = """
+class Basic:
+
+    @property
+    def title_msg(self):
+        return """
      _                                 ____            _   _       _
     | |       __ _   _ __     __ _    | __ )   _   _  (_) | |   __| |   ___   _ __
     | |      / _' | | '_ \   / _' |   |  _ \  | | | | | | | |  / _' |  / _ \ | '__|
@@ -53,23 +57,17 @@ TITLE = """
                            
     """
 
-COUNT_SYMBOLS_LINE = 29
-
-
-def title_msg():
-    return TITLE
-
-
-def line_msg():
-    return COUNT_SYMBOLS_LINE * '-'
+    @property
+    def line_msg(self):
+        return 29 * '-'
 
 
 def main():
-    print(title_msg())
+    print(Basic().title_msg)
 
-    print(line_msg())
+    print(Basic().line_msg)
     print("Build language files...")
-    print(line_msg())
+    print(Basic().line_msg)
 
     source_dir = os.environ.get('DIR', os.getcwd())
     print(f'Found files in directory "{source_dir}"...')
