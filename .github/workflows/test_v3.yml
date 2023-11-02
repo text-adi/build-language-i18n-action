@@ -14,7 +14,7 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - run: |
           mkdir ${{ github.workspace }}/src
           mkdir ${{ github.workspace }}/src/main
@@ -39,6 +39,7 @@ jobs:
       - uses: docker://textadi/build-language-i18n-action:v3
         env:
           DIR: src
+
       - name: Check Test - 1
         run: |
           expected_files=("file.po" "file.mo")
