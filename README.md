@@ -10,7 +10,7 @@ Building translation files for the i18n library
 Place in a `.yml` file such as this one in your `.github/workflows` folder. [Refer to the documentation on workflow YAML syntax here.](https://help.github.com/en/articles/workflow-syntax-for-github-actions)
 
 ```yaml
-name: Upload Website
+name: Build Files
 
 on:
   push:
@@ -22,13 +22,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - uses: docker://textadi/build-language-i18n-action@v2
+    - uses: docker://textadi/build-language-i18n-action@v3
       env:
         DIR: src
 ```
 
 You can also use an image from the repository. 
-To do this, specify `textadi/build-language-i18n-action@v2.0` instead of `docker://textadi/build-language-i18n-action@v2`
+To do this, specify `textadi/build-language-i18n-action@v3` instead of `docker://textadi/build-language-i18n-action@v2`
 
 ### Configuration
 
