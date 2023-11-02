@@ -1,5 +1,3 @@
 #!/bin/sh
 
-DIR_SCRIPT='./builder'
-
-python $DIR_SCRIPT/main.py
+python builder/main.py
