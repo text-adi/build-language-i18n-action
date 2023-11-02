@@ -23,7 +23,7 @@ jobs:
 
       - name: Set basic env
         run: |
-          echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+          echo "Tag: ${{ env.GITHUB_REF#refs/tags/ }}"
 
 #      - name: Create Release
 #        id: create_release
@@ -47,4 +47,4 @@ jobs:
           context: .
           push: true
           tags: |
-            ${{ env.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.RELEASE_VERSION }}
+            ${{ env.DOCKER_USERNAME }}/${{ env.IMAGE_NAME }}:${{ env.GITHUB_REF#refs/tags/ }}
