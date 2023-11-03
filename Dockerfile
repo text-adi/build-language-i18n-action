@@ -19,10 +19,10 @@ LABEL repository="https://github.com/text-adi/build-lang-action"
 LABEL homepage="https://github.com/text-adi"
 LABEL maintainer="text-adi <text-adi@github.com>"
 
-WORKDIR /app
+WORKDIR /code
 
-COPY script script
+COPY script /script
 
 COPY --from=builder /install /usr/local/
 
-CMD ["python","/app/script/main.py"]
+CMD ["python","/script/main.py"]
