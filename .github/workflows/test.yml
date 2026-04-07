@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - dev
+git
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -12,13 +13,20 @@ concurrency:
 jobs:
   test:
     name: Test
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - run: |
           mkdir ${{ github.workspace }}/src
           mkdir ${{ github.workspace }}/src/main
           mkdir ${{ github.workspace }}/src/another
+
       - name: Create file
         uses: "finnp/create-file-action@master"
         env:

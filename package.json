@@ -1,0 +1,23 @@
+{
+  "name": "build-language-i18n-action",
+  "version": "1.0.0",
+  "description": "Building translation files for the i18n library",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/text-adi/build-language-i18n-action.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/text-adi/build-language-i18n-action/issues"
+  },
+  "homepage": "https://github.com/text-adi/build-language-i18n-action#readme",
+  "dependencies": {
+    "@actions/core": "^3.0.0",
+    "@actions/github": "^9.0.0"
+  }
+}
