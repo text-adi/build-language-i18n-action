@@ -4,6 +4,11 @@ author: text-adi
 runs:
   using: node24
   main: dist/index.js
+inputs:
+  dir:
+    description: 'Directory to search for .po files'
+    required: false
+    default: '.'
 branding:
   icon: refresh-ccw
   color: green

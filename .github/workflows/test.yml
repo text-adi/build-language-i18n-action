@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - dev
-git
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -44,7 +44,7 @@ jobs:
           cp src/file.po ${{ github.workspace }}/src/another/file.po
           ls -la ${{ github.workspace }}/src
 
-      - uses: text-adi/build-language-i18n-action@${{ github.sha }}
+      - uses: ./
         with:
           dir: src/another
 
