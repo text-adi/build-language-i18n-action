@@ -30,8 +30,11 @@ jobs:
           mkdir ${{ github.workspace }}/test/another
 
       - name: Create file
+        shell: bash
+        env:
+          PO_CONTENT: ${{ vars.TEMPLATE }}
         run: |
-          echo "${{vars.TEMPLATE}}" > "test/file.po"
+          echo "$PO_CONTENT" > "test/file.po"
 
       - name: Check create file
         run: |
