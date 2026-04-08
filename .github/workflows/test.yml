@@ -72,4 +72,17 @@ jobs:
               echo "File $file found in $directory/$file" && ls -la $directory && exit 1
             fi
           done
-      
+
+      - name: Install msgfmt (gettext)
+        run: |
+          if [ "$RUNNER_OS" == "Linux" ]; then
+            sudo apt-get update && sudo apt-get install -y gettext
+          elif [ "$RUNNER_OS" == "Windows" ]; then
+            choco install gettext -y
+          elif [ "$RUNNER_OS" == "macOS" ]; then
+            brew install gettext
+            echo "$(brew --prefix gettext)/bin" >> "$GITHUB_PATH"
+          fi
+
+      - name: Verify msgfmt
+        run: msgfmt --version
