@@ -44,9 +44,9 @@ jobs:
           cp src/file.po ${{ github.workspace }}/src/another/file.po
           ls -la ${{ github.workspace }}/src
 
-      - uses: text-adi/build-language-i18n-action@dev
-        env:
-          DIR: src/another
+      - uses: text-adi/build-language-i18n-action@${{ github.sha }}
+        with:
+          dir: src/another
 
       - name: Check Test - 1
         run: |
