@@ -30,10 +30,8 @@ jobs:
           mkdir ${{ github.workspace }}/test/another
 
       - name: Create file
-        uses: "finnp/create-file-action@master"
-        env:
-          FILE_NAME: "test/file.po"
-          FILE_DATA: ${{vars.TEMPLATE}}
+        run: |
+          echo "${{vars.TEMPLATE}}" > "test/file.po"
 
       - name: Check create file
         run: |
