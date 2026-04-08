@@ -10,6 +10,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+defaults:
+  run:
+    shell: bash
 
 jobs:
   test:
@@ -38,14 +41,14 @@ jobs:
 
       - name: Check create file
         run: |
-          ls        
+          ls -la           
           tail test/file.po
 
       - name: Create new file for build
         run: |
           cp test/file.po ${{ github.workspace }}/test/main/file.po
           cp test/file.po ${{ github.workspace }}/test/another/file.po
-          ls ${{ github.workspace }}/test
+          ls -la ${{ github.workspace }}/test
 
       - uses: ./
         with:
@@ -57,7 +60,7 @@ jobs:
           directory="./test/another"
           for file in "${expected_files[@]}"; do
             if [[ ! -f "$directory/$file" ]]; then
-              echo "File $file not found in dir $directory/$file" && ls $directory && exit 1
+              echo "File $file not found in dir $directory/$file" && ls -la $directory && exit 1
             fi
           done
 
@@ -67,7 +70,7 @@ jobs:
           directory="./test/main"
           for file in "${expected_files[@]}"; do
             if [[ -f "$directory/$file" ]]; then
-              echo "File $file found in $directory/$file" && ls $directory && exit 1
+              echo "File $file found in $directory/$file" && ls -la $directory && exit 1
             fi
           done
       
