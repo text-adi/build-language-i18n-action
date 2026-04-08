@@ -5,9 +5,9 @@ import commonjs from '@rollup/plugin-commonjs'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 
 const config = {
-  input: 'src/index.js',
+  input: 'src/index.mjs',
   output: {
-    file: 'dist/index.js',
+    file: 'dist/index.сjs',
     format: 'cjs',
     exports: 'auto',
   },
