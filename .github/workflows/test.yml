@@ -28,12 +28,11 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - run: |
-          mkdir ${{ github.workspace }}/test
-          mkdir ${{ github.workspace }}/test/main
-          mkdir ${{ github.workspace }}/test/another
+          mkdir ./test
+          mkdir ./test/main
+          mkdir ./test/another
 
       - name: Create file
-        shell: bash
         env:
           PO_CONTENT: ${{ vars.TEMPLATE }}
         run: |
@@ -42,17 +41,17 @@ jobs:
       - name: Check create file
         run: |
           ls -la           
-          tail test/file.po
+          tail ./test/file.po
 
       - name: Create new file for build
         run: |
-          cp test/file.po ${{ github.workspace }}/test/main/file.po
-          cp test/file.po ${{ github.workspace }}/test/another/file.po
-          ls -la ${{ github.workspace }}/test
+          cp ./test/file.po ./test/main/file.po
+          cp ./test/file.po ./test/another/file.po
+          ls -la ./test
 
       - uses: ./
         with:
-          dir: test/another
+          dir: ./test/another
 
       - name: Check Test - 1
         run: |
