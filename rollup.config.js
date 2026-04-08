@@ -7,7 +7,7 @@ import { nodeResolve } from '@rollup/plugin-node-resolve'
 const config = {
   input: 'src/index.mjs',
   output: {
-    file: 'dist/index.сjs',
+    file: 'dist/index.cjs',
     format: 'cjs',
     exports: 'auto',
   },
