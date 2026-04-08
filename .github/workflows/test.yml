@@ -1,49 +1,62 @@
 name: Test
 
 on:
-  push:
-    branches:
-      - dev
+  pull_request:
+    types:
+      - synchronize
+  workflow_dispatch:
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+defaults:
+  run:
+    shell: bash
 
 jobs:
   test:
     name: Test
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6
       - run: |
-          mkdir ${{ github.workspace }}/src
-          mkdir ${{ github.workspace }}/src/main
-          mkdir ${{ github.workspace }}/src/another
+          mkdir ./test
+          mkdir ./test/main
+          mkdir ./test/another
+
       - name: Create file
-        uses: "finnp/create-file-action@master"
         env:
-          FILE_NAME: "src/file.po"
-          FILE_DATA: ${{vars.TEMPLATE}}
+          PO_CONTENT: ${{ vars.TEMPLATE }}
+        run: |
+          echo "$PO_CONTENT" > "test/file.po"
 
       - name: Check create file
         run: |
           ls -la           
-          tail src/file.po
+          tail ./test/file.po
 
       - name: Create new file for build
         run: |
-          cp src/file.po ${{ github.workspace }}/src/main/file.po
-          cp src/file.po ${{ github.workspace }}/src/another/file.po
-          ls -la ${{ github.workspace }}/src
+          cp ./test/file.po ./test/main/file.po
+          cp ./test/file.po ./test/another/file.po
+          ls -la ./test
 
-      - uses: text-adi/build-language-i18n-action@dev
-        env:
-          DIR: src/another
+      - uses: ./
+        with:
+          dir: ./test/another
 
       - name: Check Test - 1
         run: |
           expected_files=("file.po" "file.mo")
-          directory="./src/another"
+          directory="./test/another"
           for file in "${expected_files[@]}"; do
             if [[ ! -f "$directory/$file" ]]; then
               echo "File $file not found in dir $directory/$file" && ls -la $directory && exit 1
@@ -53,10 +66,23 @@ jobs:
       - name: Check Test - 2
         run: |
           expected_files=("file.mo")
-          directory="./src/main"
+          directory="./test/main"
           for file in "${expected_files[@]}"; do
             if [[ -f "$directory/$file" ]]; then
               echo "File $file found in $directory/$file" && ls -la $directory && exit 1
             fi
           done
-      
+
+      - name: Install msgfmt (gettext)
+        run: |
+          if [ "$RUNNER_OS" == "Linux" ]; then
+            sudo apt-get update && sudo apt-get install -y gettext
+          elif [ "$RUNNER_OS" == "Windows" ]; then
+            choco install gettext -y
+          elif [ "$RUNNER_OS" == "macOS" ]; then
+            brew install gettext
+            echo "$(brew --prefix gettext)/bin" >> "$GITHUB_PATH"
+          fi
+
+      - name: Verify msgfmt
+        run: msgfmt --version

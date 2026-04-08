@@ -2,8 +2,13 @@ name: "Building i18n files"
 description: "Building translation files for the i18n library"
 author: text-adi
 runs:
-  using: docker
-  image: Dockerfile
+  using: node24
+  main: dist/index.cjs
+inputs:
+  dir:
+    description: 'Directory to search for .po files'
+    required: false
+    default: '.'
 branding:
   icon: refresh-ccw
   color: green
