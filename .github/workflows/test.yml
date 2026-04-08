@@ -38,7 +38,7 @@ jobs:
 
       - name: Check create file
         run: |
-          ls -la           
+          ls        
           tail test/file.po
 
       - name: Create new file for build
